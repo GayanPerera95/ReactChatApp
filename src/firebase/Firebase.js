@@ -18,7 +18,7 @@ require('firebase/auth')
   
  
 
- //export const firestore =firebase.firestore()
+ export const firestore =firebase.firestore()
  //export const auth = firebaseApp.auth()
   
   export default firebase

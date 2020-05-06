@@ -20,9 +20,9 @@ const validateField = () => {
 
 function createGroupToFireBase(){
   setIsLoading(true)
-  const groupsRef = firestore.collection('groups').doc()
-  
-  const userID = firebase.auth().currentUser.uid
+  const groupsRef=firestore.collection("groups").doc()
+
+  const userID=firebase.auth().currentUser.uid
     
   groupsRef.set({
     groupID: groupsRef.id,
