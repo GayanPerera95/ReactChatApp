@@ -7,24 +7,28 @@ import Images from '../const/Images';
 
 function GroupScreen({navigation})
 {
+  
   useLayoutEffect(() => {
     
        navigation.setOptions({
-         headerRight:() => {
+         headerRight:() => (
            <ButtonWidthBackground onPress= {()=>{
               navigation.navigate('AddGroupScreen')
               
            }}
            image = {Images.add}
            />
-          },
-         headerLeft:()=>{
+         ),
+         headerLeft:()=>(
            <ButtonWidthBackground onPress={()=>{
-              
+              navigation.reset({
+                index:0,
+                routes:[{name:"SignInScreen"}]
+              })
            }}
              image = {Images.logout}
            />
-         }
+         ),
        })
       
     })

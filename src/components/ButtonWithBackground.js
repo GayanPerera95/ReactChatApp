@@ -19,7 +19,7 @@ const ButtonWidthBackground = (props) => {
 
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     button:{
         display: 'flex',
         height:30,
