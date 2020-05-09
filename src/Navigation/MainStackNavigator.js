@@ -16,6 +16,12 @@ function ChatFlow() {
     <Stack.Navigator name="chat">
     
     <Stack.Screen
+          name="GroupScreen"
+          component={GroupScreen}
+          options={{ headerTransparent: true,title: 'GroupScreen' }}
+        />
+
+    <Stack.Screen
           name="SignInScreen"
           component={SignInScreen}
           options={{ headerTransparent: true,title: '' }} 
@@ -26,11 +32,7 @@ function ChatFlow() {
           options={{title: 'Add Group'}}
         />
     
-         <Stack.Screen
-          name="GroupScreen"
-          component={GroupScreen}
-          options={{ headerTransparent: true,title: 'GroupScreen' }}
-        />
+         
          <Stack.Screen
           name="RegisterScreen"
           component={RegisterScreen}

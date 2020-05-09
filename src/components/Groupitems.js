@@ -51,4 +51,6 @@ const styles = StyleeSheet.create({
         backgroundColor: Color.theme
     }
 })
+
+export default GroupItems
  

@@ -1,5 +1,5 @@
 import React,{useLayoutEffect, useState, useEffect} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text,} from 'react-native';
 import ButtonWidthBackground from '../components/ButtonWithBackground';
 import Images from '../const/Images';
 
