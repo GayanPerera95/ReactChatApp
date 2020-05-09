@@ -47,6 +47,8 @@ function addMemberOfChatToFirebase(groupId, userID){
   const membersRef = firestore.collection("members").doc(groupId).collection('member').doc()
   membersRef.set({
     userID: userID
+  }).then(function (docRef){
+    navigation.goBack()
   }).
   catch(function(error){
     setIsLoading(false)
