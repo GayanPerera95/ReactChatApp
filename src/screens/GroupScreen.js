@@ -1,12 +1,14 @@
 import React,{useLayoutEffect, useState, useEffect} from 'react';
-import {StyleSheet, View, Text,} from 'react-native';
+import {StyleSheet, View, Text,FlatList,TouchableOpacity,Alert, SnapshotViewIOS} from 'react-native';
 import ButtonWidthBackground from '../components/ButtonWithBackground';
-import Images from '../const/Images';
-
+import Images from '../const/Images'
+import GroupItem from '../components/Groupitems'
+import firebase,{firestore} from '../firebase/Firebase'
 
 
 function GroupScreen({navigation})
 {
+  const[groups, setgroups] = useState([])
   
   useLayoutEffect(() => {
     
@@ -32,11 +34,38 @@ function GroupScreen({navigation})
        })
       
     })
+
+    function getChats(){
+      const db = firestore
+      var groupArray = []
+
+      db.collection("groups").onSnapshot(function (onSnapshot){
+        Snapshot.docChanges.forEach(function(change){
+          if (change.type == "added"){
+            console.log("New Group: ",change.doc.data())
+            groupArray.push(change.doc.data)
+          }
+          setgroups(groupArray)
+        })
+      })
+    }
   
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello.!!!</Text>
+        <FlatList
+        data = {groups}
+        keyExtractor = {(item, index) => 'key'+index}
+        renderItem = {({item}) => {
+          return(
+            <TouchableOpacity onPress = {() => {
+              navigation.navigate('ChatScreen')
+            }}>
+                <GroupItem item = {item}></GroupItem>
+            </TouchableOpacity>
+          )
+        }}>
+        </FlatList>
     </View>
   )
 }
