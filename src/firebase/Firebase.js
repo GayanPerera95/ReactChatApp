@@ -14,11 +14,11 @@ require('firebase/auth')
     measurementId: "G-1SKCPGLXY0"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig)
   
  
 
  export const firestore =firebase.firestore()
- //export const auth = firebaseApp.auth()
+// export const auth = firebaseApp.auth()
   
   export default firebase
