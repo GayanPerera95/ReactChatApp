@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleeSheet,View,Test,Image} from 'react-native'
+import {StyleSheet,View,Text,Image} from 'react-native'
 import Constants from '../const/Constants'
 import Images from '../const/Images'
 import Color from '../utils/Colors'
@@ -8,7 +8,7 @@ function GroupItems({item}){
     return(
         <View>
             <View style = {styles.container}>
-                <Image source = {Images.groups}/>
+                <Image source = {Images.group} style = {styles.Image}/>
                 <View style = {{justifyContent: 'center'}}>
                     <Text style = {styles.groupTitle}>{item.groupName}</Text>
                     <Text style = {styles.groupMembers}>{item.groupMembers}</Text>
@@ -18,7 +18,7 @@ function GroupItems({item}){
     )
 }
 
-const styles = StyleeSheet.create({
+const styles = StyleSheet.create({
     container:{
         flex: 1,
         flexDirection: 'row',

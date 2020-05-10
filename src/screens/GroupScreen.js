@@ -35,34 +35,53 @@ function GroupScreen({navigation})
       
     })
 
+    useEffect(() =>{
+      getChats()
+    }, [])
+
     function getChats(){
       const db = firestore
       var groupArray = []
 
-      db.collection("groups").onSnapshot(function (onSnapshot){
-        Snapshot.docChanges.forEach(function(change){
+      db.collection("groups").onSnapshot(function (snapshot){
+        snapshot.docChanges().forEach(function(change){
           if (change.type == "added"){
             console.log("New Group: ",change.doc.data())
-            groupArray.push(change.doc.data)
+            groupArray.push(change.doc.data())
+          }
+          if(change.type == "modified"){
+            console.log("Modified Group: ",change.doc.data())
+          }
+          if(change.type == "removed"){
+            console.log("Removed Group: ",change.doc.data())
           }
           setgroups(groupArray)
         })
       })
     }
   
-
+    
   return (
     <View style={styles.container}>
-        <FlatList
+    
+    <View style = {styles.view}>
+
+    </View>
+    
+        <FlatList 
         data = {groups}
         keyExtractor = {(item, index) => 'key'+index}
         renderItem = {({item}) => {
           return(
+            
             <TouchableOpacity onPress = {() => {
-              navigation.navigate('ChatScreen')
+              navigation.navigate('ChatScreen'),{
+                item
+              }
             }}>
                 <GroupItem item = {item}></GroupItem>
             </TouchableOpacity>
+            
           )
         }}>
         </FlatList>
@@ -81,6 +100,11 @@ const styles = StyleSheet.create({
     color: 'red',
     fontSize: 14,
     fontWeight: 'bold'
+  },
+  view: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center'
   }
 })
 
