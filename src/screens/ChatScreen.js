@@ -1,5 +1,13 @@
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React,{useState, useEffect} from 'react';
+import {StyleSheet, View, Text, TouchableOpacity, FlatList, KeyboardAvoidingView, Alert, Button} from 'react-native'
+import firebase,{firestore} from '../firebase/Firebase'
+import MessageFieldView from '../components/MessageFieldView'
+import Color from '../utils/Colors'
+import constants from '../const/Constants'
+import String from '../const/String'
+import DismissKeyboard from '../components/DismissKeyboard'
+import MessageItem from '../components/MessageItem'
+
 
 function ChatScreen() {
   return (
@@ -15,13 +23,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-  }
+  },
   
-  // text: {
-  //   color: 'black',
-  //   fontSize: '24',
-  //   fontWeight: 'bold',
-  // }
+  text: {
+    color: 'black',
+    fontSize: 24,
+    fontWeight: 'bold',
+  }
 })
 
 export default ChatScreen
