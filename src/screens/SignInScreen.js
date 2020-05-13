@@ -70,8 +70,8 @@ catch(e){
 
   return (
     
-
-       <View>
+<DismissKeyboard>
+        <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <ImageBackground source= {Images.back} style={styles.background}></ImageBackground>
         <View style = {styles.view}>
         
@@ -117,7 +117,9 @@ catch(e){
             
             </SafeAreaView>
         </View>
-        </View>
+        </KeyboardAvoidingView>
+
+    </DismissKeyboard>
    
   
               )}

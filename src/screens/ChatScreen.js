@@ -15,13 +15,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-  },
-  
-  text: {
-    color: 'black',
-    fontSize: '24',
-    fontWeight: 'bold',
   }
+  
+  // text: {
+  //   color: 'black',
+  //   fontSize: '24',
+  //   fontWeight: 'bold',
+  // }
 })
 
 export default ChatScreen
