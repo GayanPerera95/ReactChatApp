@@ -1,8 +1,8 @@
 import React from 'react'
-import {TextInput, Text, StyleSheet, View, Button } from 'react-native'
+import {TextInput, Text, StyleSheet, View } from 'react-native'
 import Color from '../utils/Colors'
 import Constants from '../const/Constants'
-import ButtonWithBackground from '../components/ButtonWithBackground'
+import Button from '../components/Button'
 import String from '../const/String'
 
 const MessageFieldView = ({term, placeHolder, onTermChange, onValidateTextField, error, onSubmit,isJoined}) => {
@@ -28,27 +28,31 @@ const MessageFieldView = ({term, placeHolder, onTermChange, onValidateTextField,
 
 const styles = StyleSheet.create({
     containerView:{
-        backgroundColor: Color.white,
-        width: Constants.screenWidth,
-        flex: 1,
-        justifyContent: 'space-between'
+        flex:1,
+        backgroundColor:Color.theme,
+        width:Constants.screenWidth,
+        justifyContent:"space-around",
     },
     fieldView:{
         flex:1,
-        flexDirection: 'row',
-        backgroundColor: Color.uaStudioGreen,
+        flexDirection:'row',
+        backgroundColor:Color.theme,
+        marginTop:-10,
 
+      
     },
     textField:{
-        fontSize: 14,
+        fontSize:15,
         flex:1,
-        marginRight: 10,
-        paddingLeft: 10,
-        width:'75%',
-        borderColor: Color.gray,
-        borderWidth: 1,
-        justifyContent: 'center',
-        backgroundColor: Color.smoke
+        marginRight:10,
+        paddingLeft:10,
+        width:'80%',
+        borderColor:Color.gray,
+        borderWidth:1,
+        justifyContent:'center',
+        backgroundColor:Color.smoke,
+        height:50,
+        marginLeft:10
     },
     Button:{
         flex: 1,

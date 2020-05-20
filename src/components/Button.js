@@ -51,5 +51,5 @@ const styles= StyleSheet.create({
      textTransform:'uppercase',
      color:Color.white,
  }
-});
-export default Button;
+})
+export default Button

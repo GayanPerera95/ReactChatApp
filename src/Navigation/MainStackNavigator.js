@@ -14,6 +14,8 @@ function ChatFlow() {
   return (
     <NavigationContainer>
     <Stack.Navigator name="chat">
+     
+    
     <Stack.Screen
           name="GroupScreen"
           component={GroupScreen}
@@ -25,7 +27,11 @@ function ChatFlow() {
           options={{ headerTransparent: true,title: '' }} 
         />
 
-   
+<Stack.Screen
+          name="ChatScreen"
+          component={ChatScreen}
+          options={{title: 'Chats'}}
+        />
     
 
    
@@ -41,12 +47,7 @@ function ChatFlow() {
           component={RegisterScreen}
           options={{title: ''}}
         />
-        
-        <Stack.Screen
-          name="ChatScreen"
-          component={ChatScreen}
-          options={{title: 'Chats'}}
-        />
+       
       </Stack.Navigator>
     </NavigationContainer>
   );

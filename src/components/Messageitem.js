@@ -29,31 +29,38 @@ function MessageItem({item}) {
 }
 
 const styles = StyleSheet.create({
-    otherMessageContainerView: {
-        width: Constants.screenWidth -50,
-        backgroundColor: Color.gray,
-        borderRadius: 5,
-        marginLeft: 25,
-        marginTop: 5,
-        marginBottom: 5,
-        padding: 10
+    othersMessageContainerView:{
+        width:Constants.screenWidth*0.8,
+        backgroundColor:Color.OtherMessageColor,
+        borderRadius:5,
+        marginRight:40,
+        marginTop:5,
+        marginBottom:5,
+        padding:10,
+        height:60
     },
     myMessageContainerView:{
-        width: Constants.screenWidth,
-        backgroundColor: Color.gray,
-        borderRadius: 5,
-        margin: 5,
-        padding:  10
+        width:Constants.screenWidth*0.8,
+        backgroundColor:Color.MessageColor,
+        borderRadius:5,
+        margin:5,
+        padding:8,
+        marginLeft:40,
+        height:60
     },
     senderName:{
-        color: Color.white,
-        fontSize: 14,
-        fontWeight: 'bold'
+        color:Color.white,
+        fontSize:15,
+        fontWeight:'bold',
+        textAlign:"right"
+      //  marginLeft:170
+        
     },
     message:{
-        color: Color.white,
-        fontSize: 14
-    }
+        color:Color.white,
+        fontSize:14,
+        textAlign:"right"
+}
 })
 
 export default MessageItem

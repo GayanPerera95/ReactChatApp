@@ -14,7 +14,7 @@ function ChatScreen({route, navigation}) {
       const [message, setMessage] = useState('')
       const [isJoined, setIsJoined] = useState (false)
 
-      const {item}=route.params
+      const {item} =route.params
       const userID = firebase.auth().currentUser.uid
 
       useEffect(() => {
@@ -24,14 +24,14 @@ function ChatScreen({route, navigation}) {
 
       function getMessages(){
         const db = firestore
-        var message = []
+        var messages = []
 
-        db.collection("message").doc(item.groupID).collection("message")
+        db.collection('messages').doc(item.groupID).collection('message')
         .onSnapshot(function (Snapshot){
            Snapshot.docChanges().forEach(function (change){
              if (change.type == "added"){
                console.log("New Message: ",change.doc.data())
-               messageList.push(change.doc.data())
+               messages.push(change.doc.data())
              }
              if (change.type == "modified"){
               console.log("Modified Message: ",change.doc.data())
@@ -43,6 +43,29 @@ function ChatScreen({route, navigation}) {
           })
         })
       }
+
+     function sendMessagesToChat(){
+        const messageRef=firestore.collection('messages').doc(item.groupID).collection('message').doc()
+       const userEmail= firebase.auth().currentUser.email
+       
+
+        messageRef.set({
+
+            messageID:messageRef.id,
+            message:message,
+            senderID:userID,
+            senderEmail:userEmail,
+        }).then(function(docRef){
+        
+            console.log("Focument writeen with ID :",messageRef.id)
+            setMessage('')
+
+        }).catch(function(error){
+            Alert.alert(error.message)
+            console.log("Error",error)
+        })
+
+    }
 
 
   return (
@@ -69,7 +92,7 @@ function ChatScreen({route, navigation}) {
           <MessageFieldView term = {message}
           placeHolder= {String.typeYourMessage}
           onTermChange = {message => setMessage(message)}
-          //onSubmit= {sendMessagesToChat}
+          onSubmit= {sendMessagesToChat}
           >
             
           </MessageFieldView>
@@ -94,8 +117,10 @@ const styles = StyleSheet.create({
     flex: 0.9
   },
   MessageFieldView:{
-    flex: 0.1
+    flex: 0.1,
+    marginBottom: 30
   }
+
   
 })
 
