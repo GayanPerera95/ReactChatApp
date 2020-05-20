@@ -14,7 +14,7 @@ function ChatScreen({route, navigation}) {
       const [message, setMessage] = useState('')
       const [isJoined, setIsJoined] = useState (false)
 
-      const {item} =route.params
+      const{item} =route.params
       const userID = firebase.auth().currentUser.uid
 
       useEffect(() => {
